@@ -138,6 +138,39 @@ export type Database = {
         }
         Relationships: []
       }
+      social_posts: {
+        Row: {
+          created_at: string
+          data_publicacao: string
+          id: string
+          link: string
+          tema: string
+          texto: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          data_publicacao: string
+          id?: string
+          link: string
+          tema: string
+          texto: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          data_publicacao?: string
+          id?: string
+          link?: string
+          tema?: string
+          texto?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
