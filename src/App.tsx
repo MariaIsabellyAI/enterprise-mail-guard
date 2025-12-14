@@ -14,6 +14,11 @@ import EmailList from "@/pages/EmailList";
 import EmailDetail from "@/pages/EmailDetail";
 import NotFound from "@/pages/NotFound";
 
+// Social Module Views
+import SocialListView from "@/view/social/SocialListView";
+import SocialFormView from "@/view/social/SocialFormView";
+import SocialEditView from "@/view/social/SocialEditView";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -32,6 +37,10 @@ const App = () => (
               <Route path="/novo" element={<NewEmail />} />
               <Route path="/lista" element={<EmailList />} />
               <Route path="/email/:id" element={<EmailDetail />} />
+              {/* Social Module Routes */}
+              <Route path="/redes-sociais" element={<SocialListView />} />
+              <Route path="/redes-sociais/nova" element={<SocialFormView />} />
+              <Route path="/redes-sociais/editar/:id" element={<SocialEditView />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>

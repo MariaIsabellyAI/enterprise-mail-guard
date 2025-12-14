@@ -7,7 +7,8 @@ import {
   List,
   LogOut,
   Menu,
-  X
+  X,
+  Share2
 } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import { cn } from '@/lib/utils';
@@ -19,6 +20,7 @@ const navItems = [
   { to: '/pendentes', icon: Mail, label: 'E-mails Pendentes' },
   { to: '/novo', icon: PlusCircle, label: 'Cadastro Manual' },
   { to: '/lista', icon: List, label: 'Lista Geral' },
+  { to: '/redes-sociais', icon: Share2, label: 'Redes Sociais' },
 ];
 
 export function Sidebar() {
