@@ -4,8 +4,6 @@ import { socialPostService } from '@/model/services/SocialPostService';
 import { SocialPostInput, SocialPostFilters } from '@/model/entities/SocialPost';
 import { useAuth } from '@/hooks/useAuth';
 import { useToast } from '@/hooks/use-toast';
-import jsPDF from 'jspdf';
-import autoTable from 'jspdf-autotable';
 
 export function useSocialViewModel() {
   const { user } = useAuth();
@@ -111,12 +109,16 @@ export function useSocialViewModel() {
     setFilters({});
   }, []);
 
-  const generatePDF = useCallback(() => {
+  const generatePDF = useCallback(async () => {
     const posts = postsQuery.data || [];
     if (posts.length === 0) {
       toast({ title: 'Nenhuma publicação para exportar', variant: 'destructive' });
       return;
     }
+
+    // Dynamic imports to avoid React bundling issues
+    const jsPDF = (await import('jspdf')).default;
+    const autoTable = (await import('jspdf-autotable')).default;
 
     const doc = new jsPDF();
     
